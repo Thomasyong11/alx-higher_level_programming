@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module contains an algorithm that resolves the N-Queen puzzle
+solve the N-Queen puzzle
 using backtracking
 """
 
