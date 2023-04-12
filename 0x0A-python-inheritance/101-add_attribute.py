@@ -1,14 +1,13 @@
 #!/usr/bin/python3
-def add_attribute(obj, name, value):
-    """ Function that adds a new attribute to an object
-    Args:
-        obj: object
-        name: attribute name
-        value: attribute value
-    Raises:
-        TypeError: when the attribute can't be added
-    """
+"""MyInt class module"""
 
-    if not hasattr(obj, "__dict__"):
-        raise TypeError("can't add new attribute")
-    setattr(obj, name, value)
+
+class MyInt(int):
+    """A MyInt class"""
+    def __eq__(self, other):
+        """Overides and inverts == operator"""
+        return int(self) != int(other)
+
+    def __ne__(self, other):
+        """Overides and inverts != operator"""
+        return int(self) == int(other)
