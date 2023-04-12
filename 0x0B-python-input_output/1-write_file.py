@@ -1,10 +1,16 @@
 #!/usr/bin/python3
-def number_of_lines(filename=""):
-    """function that reads a text and return number of lines"""
+""" Module that contains a function that writes to a text file
+"""
 
-   number_of_lines = 0
-    with open(filename) as f:
-        for line in f:
-            number_of_lines += 1
-        return (number_of_lines)
 
+def write_file(filename="", text=""):
+    """ Function that writes to a text file
+    Args:
+        filename: filename
+        text: text to write
+    Raises
+        Exception: when the file can be opened
+    """
+
+    with open(filename, 'w', encoding="utf-8") as f:
+        return f.write(text)
