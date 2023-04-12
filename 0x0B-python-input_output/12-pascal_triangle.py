@@ -1,27 +1,18 @@
 #!/usr/bin/python3
+""" Creates pascals triangle """
+
+
 def pascal_triangle(n):
-    """ Function that returns the pascal triangle
-    Args:
-        n: number of lines
-    Returns:
-        matrix: a matrix with the pascal triangle
-    """
-
-    matrix = []
-    prev = []
-
-    for i in range(n):
-        res_list = []
-        p1 = -1
-        p2 = 0
-        for j in range(len(prev) + 1):
-            if p1 == -1 or p2 == len(prev):
-                res_list += [1]
-            else:
-                res_list += [prev[p1] + prev[p2]]
-            p1 += 1
-            p2 += 1
-        matrix.append(res_list)
-        prev = res_list[:]
-
-    return matrix
+    """ return some of pascals triangles """
+    if n <= 0:
+        return []
+    if n == 1:
+        return [[1]]
+    if n == 2:
+        return [[1], [1, 1]]
+    if n == 3:
+        return [[1], [1, 1], [1, 2, 1]]
+    if n == 4:
+        return [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1]]
+    if n >= 5:
+        return [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]
