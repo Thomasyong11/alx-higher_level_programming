@@ -13,8 +13,12 @@ class BaseGeometry:
         """method for calculating area"""
         raise Exception("area() is not implemented")
 
-    def integer_validator(self, name, value):
-        """Method to validate if value is an integer"""
+        def integer_validator(self, name, value):
+        """ Method that recieves the value property
+        Árgs:
+            name: name of the object
+            value: value of the property
+        """
 
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
