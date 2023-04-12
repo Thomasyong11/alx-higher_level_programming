@@ -1,36 +1,37 @@
 #!/usr/bin/python3
-"""
-===============================
-module with the class Student
-===============================
+""" Module that defines the class Student
 """
 
 
 class Student:
-    """class with methods to_json for retrieves dictionary"""
+    """ Class to create student instances """
 
     def __init__(self, first_name, last_name, age):
-        """method for initialized all atributes"""
-
+        """ Special method to initialize """
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """method for retrieve a dictionary representation for a
-        student instance"""
+        """ Method that returns directory description """
+        obj = self.__dict__.copy()
+        if type(attrs) is list:
 
-        if attrs is None:
-            return self.__dict__
-        dic = {}
-        for key, value in self.__dict__.items():
-            for i in attrs:
-                if key == i:
-                    dic[key] = value
-        return dic
+            for item in attrs:
+                if type(item) is not str:
+                    return obj
+
+            d_list = {}
+
+            for iatr in range(len(attrs)):
+                for satr in obj:
+                    if attrs[iatr] == satr:
+                        d_list[satr] = obj[satr]
+            return d_list
+
+        return obj
 
     def reload_from_json(self, json):
-        ''' method that replaces all atrributes of the Student instance'''
-
-        for j_key, j_value in json.items():
-            self.__dict__[j_key] = j_value
+        """ Replaces all attributes of the Student instance """
+        for atr in json:
+            self.__dict__[atr] = json[atr]
