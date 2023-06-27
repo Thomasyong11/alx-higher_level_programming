@@ -1,3 +1,4 @@
 #!/bin/bash
-# Script that makes a request to causes an specific response
-curl -sL 0.0.0.0:5000/catch_me -X PUT -H "Origin:You got me!"
+
+# Send a POST request to the specified URL with a custom header
+curl -s -X POST -H "Origin: HolbertonSchool" -d "user_id=98" "http://0.0.0.0:5000/catch_me"
