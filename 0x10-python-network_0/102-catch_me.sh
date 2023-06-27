@@ -1,5 +1,9 @@
 #!/bin/bash
-curl -s 0.0.0.0:5000/catch_me -XPUT -d "user_id=98" -L -o response.txt
+# Make the request and capture the response
+response=$(curl -s 0.0.0.0:5000/catch_me -XPUT -H "Origin:You got me!")
 
-# Print the message from the response file
-grep -o "You got me!" response.txt
+# Store the message in a variable
+message=$(grep -o "You got me!" <<< "$response")
+
+# Print the message by redirecting it to stdout
+printf "%s\n" "$message"
